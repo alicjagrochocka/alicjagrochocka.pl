@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alicja Grochocka-Dorocinska | Cybersecurity Professional and Lecturer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap');
+        
+        :root {
+            --dark-navy: #0a192f;
+            --navy: #112240;
+            --light-navy: #1d3557;
+            --lightest-navy: #233554;
+            --navy-shadow: rgba(2, 12, 27, 0.7);
+            --dark-slate: #495670;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --lightest-slate: #ccd6f6;
+            --white: #e6f1ff;
+            --green: #64ffda;
+            --green-tint: rgba(100, 255, 218, 0.1);
+            --red: #ff6b6b;
+            --orange: #ffa500;
+            
+            --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+            --font-sans: 'Space Mono', monospace;
+            
+            --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--dark-navy);
+            color: var(--slate);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--navy);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--dark-slate);
+            border-radius: 6px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--slate);
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 10px 30px -10px var(--navy-shadow);
+        }
+        
+        .logo {
+            font-family: var(--font-mono);
+            font-size: 24px;
+            color: var(--green);
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--lightest-slate);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a::before {
+            content: attr(data-num);
+            color: var(--green);
+            margin-right: 5px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--green);
+        }
+        
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--green);
+            transition: var(--transition);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 150px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-family: var(--font-mono);
+            font-size: 16px;
+            color: var(--green);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        
+        .hero h2 {
+            font-size: clamp(40px, 8vw, 80px);
+            color: var(--lightest-slate);
+            line-height: 1.1;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .hero h3 {
+            font-size: clamp(30px, 6vw, 60px);
+            color: var(--slate);
+            line-height: 1.1;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .hero p {
+            max-width: 540px;
+            font-size: 18px;
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 28px;
+            border: 1px solid var(--green);
+            border-radius: 4px;
+            color: var(--green);
+            font-family: var(--font-mono);
+            font-size: 14px;
+            text-decoration: none;
+            transition: var(--transition);
+            background: transparent;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--green-tint);
+            transform: translateY(-3px);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 100px 150px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-size: clamp(26px, 5vw, 32px);
+            color: var(--lightest-slate);
+            font-weight: 700;
+            margin-bottom: 40px;
+            font-family: var(--font-mono);
+        }
+        
+        .section-title::before {
+            content: attr(data-num);
+            color: var(--green);
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 300px;
+            height: 1px;
+            background-color: var(--lightest-navy);
+            margin-left: 20px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 50px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+            list-style: none;
+        }
+        
+        .skills-list li {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .skills-list li::before {
+            content: '▹';
+            color: var(--green);
+            position: absolute;
+            left: 0;
+        }
+        
+        .about-image {
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 4px;
+            filter: grayscale(50%) contrast(1.1);
+            transition: var(--transition);
+        }
+        
+        .about-image:hover img {
+            filter: grayscale(0%) contrast(1);
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--green);
+            border-radius: 4px;
+            top: 20px;
+            left: 20px;
+            z-index: -1;
+            transition: var(--transition);
+        }
+        
+        .about-image:hover::before {
+            top: 15px;
+            left: 15px;
+        }
+        
+        /* Teaching Section */
+        .teaching-content {
+            max-width: 900px;
+        }
+        
+        .course {
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: var(--light-navy);
+            border-radius: 4px;
+            transition: var(--transition);
+            border-left: 3px solid var(--green);
+        }
+        
+        .course:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -15px var(--navy-shadow);
+        }
+        
+        .course h3 {
+            color: var(--lightest-slate);
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .course-meta {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--slate);
+            margin-bottom: 15px;
+        }
+        
+        .course-meta .university {
+            color: var(--green);
+        }
+        
+        .course p {
+            color: var(--slate);
+            line-height: 1.8;
+        }
+        
+        .topics {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .topic-tag {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            padding: 5px 12px;
+            background-color: var(--lightest-navy);
+            color: var(--green);
+            border-radius: 3px;
+        }
+        
+        /* Research/Projects Section */
+        .project {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 10px;
+            margin-bottom: 100px;
+            align-items: center;
+        }
+        
+        .project:nth-child(even) .project-content {
+            grid-column: 7 / -1;
+            text-align: right;
+        }
+        
+        .project:nth-child(even) .project-image {
+            grid-column: 1 / 8;
+        }
+        
+        .project-content {
+            grid-column: 1 / 7;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .project-label {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--green);
+            margin-bottom: 10px;
+        }
+        
+        .project h3 {
+            color: var(--lightest-slate);
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .project-description {
+            background-color: var(--light-navy);
+            padding: 25px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px -15px var(--navy-shadow);
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+        
+        .project:nth-child(even) .project-tech {
+            justify-content: flex-end;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .project:nth-child(even) .project-links {
+            justify-content: flex-end;
+        }
+        
+        .project-links a {
+            color: var(--lightest-slate);
+            font-size: 20px;
+            transition: var(--transition);
+        }
+        
+        .project-links a:hover {
+            color: var(--green);
+            transform: translateY(-3px);
+        }
+        
+        .project-image {
+            grid-column: 6 / -1;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-image img {
+            width: 100%;
+            border-radius: 4px;
+            filter: grayscale(100%) contrast(1) brightness(80%);
+            transition: var(--transition);
+        }
+        
+        .project-image:hover img {
+            filter: grayscale(0%) contrast(1) brightness(100%);
+        }
+        
+        .project-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--green);
+            mix-blend-mode: multiply;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        .project-image:hover::before {
+            background-color: transparent;
+        }
+        
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background-color: var(--light-navy);
+            padding: 30px;
+            border-radius: 4px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 20px 30px -15px var(--navy-shadow);
+        }
+        
+        .blog-card h3 {
+            color: var(--lightest-slate);
+            font-size: 20px;
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover h3 {
+            color: var(--green);
+        }
+        
+        .blog-date {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--slate);
+            margin-bottom: 15px;
+        }
+        
+        .blog-card p {
+            color: var(--slate);
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+        
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .blog-tag {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--green);
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-content h2 {
+            font-size: clamp(40px, 5vw, 60px);
+            color: var(--lightest-slate);
+            margin-bottom: 20px;
+        }
+        
+        .contact-content p {
+            font-size: 18px;
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 20px;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--slate);
+        }
+        
+        .social-links {
+            position: fixed;
+            left: 40px;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .social-links::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 90px;
+            background-color: var(--light-slate);
+        }
+        
+        .social-links a {
+            color: var(--light-slate);
+            font-size: 20px;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            color: var(--green);
+            transform: translateY(-3px);
+        }
+        
+        .email-link {
+            position: fixed;
+            right: 40px;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .email-link::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 90px;
+            background-color: var(--light-slate);
+        }
+        
+        .email-link a {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--light-slate);
+            writing-mode: vertical-rl;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .email-link a:hover {
+            color: var(--green);
+            transform: translateY(-3px);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1080px) {
+            nav, section, .hero {
+                padding-left: 100px;
+                padding-right: 100px;
+            }
+            
+            .social-links, .email-link {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px 25px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            section, .hero {
+                padding: 80px 25px;
+            }
+            
+            .section-title::after {
+                width: 100px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .project {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-content,
+            .project:nth-child(even) .project-content {
+                grid-column: 1 / -1;
+                text-align: left;
+            }
+            
+            .project-image,
+            .project:nth-child(even) .project-image {
+                grid-column: 1 / -1;
+                opacity: 0.3;
+            }
+            
+            .project:nth-child(even) .project-tech,
+            .project:nth-child(even) .project-links {
+                justify-content: flex-start;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Alicja Grochocka-Dorocinska</div>
+        <ul class="nav-links">
+            <li><a href="#about" data-num="01.">About</a></li>
+            <li><a href="#teaching" data-num="02.">Teaching</a></li>
+            <li><a href="#research" data-num="03.">Research</a></li>
+            <li><a href="#blog" data-num="04.">Blog</a></li>
+            <li><a href="#contact" data-num="05.">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Social Links (Desktop Only) -->
+    <div class="social-links">
+        <a href="https://github.com/alicjagrochocka" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/alicja-grochocka-dorocinska/" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+        <a href="https://www.youtube.com/@alicjagrochocka"_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+       		 <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+       		 <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+		</svg>
+        </a>
+    </div>
+
+    <!-- Email Link (Desktop Only) -->
+    <div class="email-link">
+        <a href="mailto:alicja.grochocka@gmail.com">alicja.grochocka@gmail.com</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero fade-in">
+        <h1>Hi, my name is</h1>
+        <h2>Alicja.</h2>
+        <h3>I secure digital systems and teach the next generation.</h3>
+        <p>
+            I'm a cybersecurity lecturer and researcher specializing in network security, 
+            penetration testing, and secure systems design. Currently, I'm teaching at 
+            <span style="color: var(--green);">Warsaw School of Computer Science</span> and helping students 
+            become the cybersecurity professionals the world needs.
+        </p>
+        <a href="#teaching" class="cta-button">View My Courses</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title" data-num="01.">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Hello! I'm a cybersecurity professional passionate about both defending 
+                    digital infrastructure and educating the next generation of security experts. 
+                    My journey in cybersecurity started in 2020, and I've been fascinated by 
+                    the ever-evolving landscape of threats and defenses ever since.
+                </p>
+                <p>
+                    Today, I have the privilege of teaching at Warsaw School of Compuiter Science, where I guide 
+                    students through the complexities of modern cybersecurity. My teaching 
+                    philosophy combines theoretical foundations with hands-on, practical exercises 
+                    that mirror real-world scenarios.
+                </p>
+                <p>
+                    In addition to teaching, I actively conduct research in [your research areas] 
+                    and contribute to the cybersecurity community through publications, workshops, 
+                    and speaking engagements.
+                </p>
+                <p>Here are a few areas I specialize in:</p>
+                <ul class="skills-list">
+                    <li>Network Security</li>
+                    <li>Penetration Testing</li>
+                    <li>Cryptography</li>
+                    <li>Secure Coding</li>
+                    <li>Threat Intelligence</li>
+                    <li>Incident Response</li>
+                    <li>Cloud Security</li>
+                    <li>Security Architecture</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <!-- Replace with your actual image -->
+                <img src="https://via.placeholder.com/300x300/1d3557/64ffda?text=Your+Photo" alt="Alicja Grochocka-Dorocinska">
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaching Section -->
+    <section id="teaching">
+        <h2 class="section-title" data-num="02.">Teaching</h2>
+        <div class="teaching-content">
+            <div class="course">
+                <h3>Introduction to Cybersecurity</h3>
+                <div class="course-meta">
+                    <span class="university">Warsaw School of Computer Science</span> • Fall 2025 • Undergraduate
+                </div>
+                <p>
+                    A comprehensive introduction to the fundamentals of cybersecurity. Students learn 
+                    about threat landscapes, defense mechanisms, security policies, and ethical considerations. 
+                    Hands-on labs include basic penetration testing and security auditing.
+                </p>
+                <div class="topics">
+                    <span class="topic-tag">CIA Triad</span>
+                    <span class="topic-tag">Network Security</span>
+                    <span class="topic-tag">Cryptography</span>
+                    <span class="topic-tag">Social Engineering</span>
+                </div>
+            </div>
+
+            <div class="course">
+                <h3>Advanced Network Security</h3>
+                <div class="course-meta">
+                    <span class="university">Warsaw School of Computer Science</span> • Spring 2026 • Graduate
+                </div>
+                <p>
+                    Deep dive into network security protocols, intrusion detection systems, and 
+                    firewall architectures. Students design and implement secure network infrastructures 
+                    and learn to detect and respond to sophisticated attacks.
+                </p>
+                <div class="topics">
+                    <span class="topic-tag">IDS/IPS</span>
+                    <span class="topic-tag">VPN</span>
+                    <span class="topic-tag">Firewalls</span>
+                    <span class="topic-tag">Zero Trust</span>
+                </div>
+            </div>
+
+            <div class="course">
+                <h3>Penetration Testing & Ethical Hacking</h3>
+                <div class="course-meta">
+                    <span class="university">Warsaw School of Computer Science</span> • Spring 2026 • Graduate
+                </div>
+                <p>
+                    Practical course teaching professional penetration testing methodologies. Students 
+                    gain hands-on experience with industry-standard tools and techniques for assessing 
+                    security vulnerabilities in systems, networks, and applications.
+                </p>
+                <div class="topics">
+                    <span class="topic-tag">Kali Linux</span>
+                    <span class="topic-tag">Metasploit</span>
+                    <span class="topic-tag">Web Application Testing</span>
+                    <span class="topic-tag">Reporting</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research">
+        <h2 class="section-title" data-num="03.">Research & Projects</h2>
+
+        <div class="project">
+            <div class="project-content">
+                <p class="project-label">Featured Research</p>
+                <h3>AI-Driven Threat Detection System</h3>
+                <div class="project-description">
+                    <p>
+                        Developed a machine learning-based intrusion detection system that analyzes 
+                        network traffic patterns to identify potential security threats with 94% accuracy. 
+                        The system adapts to new attack vectors through continuous learning and has been 
+                        deployed in several enterprise environments.
+                    </p>
+                </div>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>TensorFlow</span>
+                    <span>Scikit-learn</span>
+                    <span>Snort</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" title="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </a>
+                    <a href="#" title="External Link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="https://via.placeholder.com/600x400/1d3557/64ffda?text=AI+Threat+Detection" alt="AI Threat Detection">
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="project-content">
+                <p class="project-label">Research Project</p>
+                <h3>Blockchain Security Analysis Framework</h3>
+                <div class="project-description">
+                    <p>
+                        Created a comprehensive framework for analyzing smart contract vulnerabilities 
+                        in blockchain applications. The tool automatically detects common security issues 
+                        and provides recommendations for secure coding practices.
+                    </p>
+                </div>
+                <div class="project-tech">
+                    <span>Solidity</span>
+                    <span>Web3.js</span>
+                    <span>Node.js</span>
+                    <span>Docker</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" title="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </a>
+                    <a href="#" title="Paper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="https://via.placeholder.com/600x400/1d3557/64ffda?text=Blockchain+Security" alt="Blockchain Security">
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="project-content">
+                <p class="project-label">Open Source Tool</p>
+                <h3>SecureLab - Cybersecurity Training Platform</h3>
+                <div class="project-description">
+                    <p>
+                        Built an open-source platform for cybersecurity education featuring interactive 
+                        labs, capture-the-flag challenges, and automated assessment tools. Used by over 
+                        500 students across multiple universities.
+                    </p>
+                </div>
+                <div class="project-tech">
+                    <span>React</span>
+                    <span>Docker</span>
+                    <span>Kubernetes</span>
+                    <span>PostgreSQL</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" title="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </a>
+                    <a href="#" title="Live Demo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="https://via.placeholder.com/600x400/1d3557/64ffda?text=SecureLab+Platform" alt="SecureLab Platform">
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog">
+        <h2 class="section-title" data-num="04.">Recent Writings</h2>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <h3>Understanding Zero Trust Architecture</h3>
+                <div class="blog-date">January 15, 2026</div>
+                <p>
+                    An in-depth exploration of Zero Trust security models and how organizations 
+                    can implement them effectively to protect against modern threats.
+                </p>
+                <div class="blog-tags">
+                    <span class="blog-tag">#ZeroTrust</span>
+                    <span class="blog-tag">#NetworkSecurity</span>
+                    <span class="blog-tag">#Architecture</span>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <h3>The Rise of AI in Cybersecurity</h3>
+                <div class="blog-date">December 28, 2025</div>
+                <p>
+                    How artificial intelligence and machine learning are transforming both 
+                    offensive and defensive cybersecurity capabilities.
+                </p>
+                <div class="blog-tags">
+                    <span class="blog-tag">#AI</span>
+                    <span class="blog-tag">#MachineLearning</span>
+                    <span class="blog-tag">#ThreatDetection</span>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <h3>Web3 Security Challenges</h3>
+                <div class="blog-date">December 10, 2025</div>
+                <p>
+                    Examining the unique security challenges posed by blockchain and 
+                    decentralized applications, with practical mitigation strategies.
+                </p>
+                <div class="blog-tags">
+                    <span class="blog-tag">#Blockchain</span>
+                    <span class="blog-tag">#Web3</span>
+                    <span class="blog-tag">#SmartContracts</span>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <h3>Teaching Cybersecurity in 2026</h3>
+                <div class="blog-date">November 22, 2025</div>
+                <p>
+                    Reflections on effective pedagogical approaches for cybersecurity 
+                    education and preparing students for real-world challenges.
+                </p>
+                <div class="blog-tags">
+                    <span class="blog-tag">#Education</span>
+                    <span class="blog-tag">#Teaching</span>
+                    <span class="blog-tag">#Pedagogy</span>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <h3>Cloud Security Best Practices</h3>
+                <div class="blog-date">November 5, 2025</div>
+                <p>
+                    A comprehensive guide to securing cloud infrastructure, covering 
+                    common misconfigurations and defense strategies.
+                </p>
+                <div class="blog-tags">
+                    <span class="blog-tag">#CloudSecurity</span>
+                    <span class="blog-tag">#AWS</span>
+                    <span class="blog-tag">#Azure</span>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <h3>Incident Response Playbook</h3>
+                <div class="blog-date">October 18, 2025</div>
+                <p>
+                    Step-by-step guide for responding to security incidents, from 
+                    detection through recovery and lessons learned.
+                </p>
+                <div class="blog-tags">
+                    <span class="blog-tag">#IncidentResponse</span>
+                    <span class="blog-tag">#DFIR</span>
+                    <span class="blog-tag">#SOC</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-content">
+            <h2 class="section-title" data-num="05.">Get In Touch</h2>
+            <p>
+                I'm always interested in collaborating on research projects, speaking at conferences, 
+                or discussing cybersecurity education. Whether you're a student, fellow researcher, 
+                or industry professional, feel free to reach out!
+            </p>
+            <a href="mailto:alicja.grochocka@gmail.com" class="cta-button">Say Hello</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Designed & Built by Alicja Grochocka-Dorocinska • Inspired by Brittany Chiang</p>
+        <p style="margin-top: 10px; font-size: 12px;">© 2026 All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Mobile menu toggle (basic implementation)
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
