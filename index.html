@@ -288,7 +288,8 @@
             top: 15px;
             left: 15px;
         }
-        
+
+		
         /* Teaching Section */
         .teaching-content {
             max-width: 900px;
@@ -344,8 +345,51 @@
             background-color: var(--lightest-navy);
             color: var(--green);
             border-radius: 3px;
-        }
-        
+        } 
+
+		/* ── PDF Downloads ────────────────────────────────── */
+.course-downloads {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border: 1px solid var(--green);
+  border-radius: 4px;
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-decoration: none;
+  transition: var(--transition);
+  background: transparent;
+  white-space: nowrap;
+}
+.pdf-link:hover {
+  background-color: var(--green-tint);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px -5px rgba(100, 255, 218, 0.3);
+}
+.pdf-link svg { flex-shrink: 0; }
+
+.downloads-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--slate);
+  margin-top: 20px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+/* ─────────────────────────────────────────────────── */
+
+
+		
         /* Research/Projects Section */
         .project {
             display: grid;
@@ -899,7 +943,85 @@
     </section>
 -->
 
-		   <!-- Teaching Section -->
+<!-- Teaching Section -->
+<section id="teaching">
+  <h2 class="section-title" data-num="03.">Teaching</h2>
+  <div class="teaching-content">
+
+    <!-- Course 1 -->
+    <div class="course">
+      <h3>Cybersecurity in IT Systems</h3>
+      <div class="course-meta">
+        <span class="university">Warsaw School of Computer Science</span> • Spring 2026 • Post diploma
+      </div>
+      <p>
+        A comprehensive introduction to the fundamentals of cybersecurity. Students learn
+        about threat landscapes, defense mechanisms, security policies, and ethical considerations.
+        Hands-on labs include basic penetration testing and security auditing.
+      </p>
+      <div class="topics">
+        <span class="topic-tag">CIA Triad</span>
+        <span class="topic-tag">Cybersecurity Ethics</span>
+        <span class="topic-tag">Social Engineering</span>
+      </div>
+
+      <!-- ── PDF Slides ─────────────────────────────── -->
+      <p class="downloads-label">📄 Slides</p>
+      <div class="course-downloads">
+        <a href="Wykład 102 CwSIT.pdf" class="pdf-link" download>
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="12" y1="13" x2="12" y2="19"></line>
+            <polyline points="9 16 12 19 15 16"></polyline>
+          </svg>
+          Wykład 1
+        </a>
+              <!-- Dodaj kolejne wykłady kopiując blok <a> powyżej -->
+      </div>
+      <!-- ────────────────────────────────────────────── -->
+    </div>
+
+    <!-- Course 2 -->
+    <div class="course">
+      <h3>Application of AI in Cybersecurity</h3>
+      <div class="course-meta">
+        <span class="university">Warsaw School of Computer Science</span> • Spring 2026 • Post diploma
+      </div>
+      <p>
+        This course explores how artificial intelligence and machine learning techniques are transforming the field of cybersecurity.
+        Students will learn how AI-powered tools are used to detect threats, analyze malicious behavior, automate incident response,
+        and strengthen defenses against modern cyberattacks. The course covers practical applications including anomaly detection,
+        intrusion detection systems, phishing identification, and vulnerability assessment. By the end of the course, participants
+        will have a solid understanding of how AI can be leveraged to build smarter, faster, and more resilient security systems.
+      </p>
+      <div class="topics">
+        <span class="topic-tag">Intrusion Detection</span>
+        <span class="topic-tag">Social Engineering</span>
+        <span class="topic-tag">Incident Response</span>
+        <span class="topic-tag">Risk Assessment</span>
+      </div>
+
+      <!-- ── PDF Slides ─────────────────────────────── -->
+      <p class="downloads-label">📄 Slides</p>
+      <div class="course-downloads">
+        <a href="Wykład 1-2 CwSIT.pdf" class="pdf-link" download>
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="12" y1="13" x2="12" y2="19"></line>
+            <polyline points="9 16 12 19 15 16"></polyline>
+          </svg>
+          Wykład 1
+        </a>
+       <!-- Dodaj kolejne wykłady kopiując blok <a> powyżej -->
+      </div>
+      <!-- ────────────────────────────────────────────── -->
+    </div>
+
+  </div>
+	<!--	
+		   <!-- Teaching Section 
     <section id="teaching">
         <h2 class="section-title" data-num="03.">Teaching</h2>
         <div class="teaching-content">
@@ -938,7 +1060,8 @@
                     <span class="topic-tag">Incident Response</span>
                     <span class="topic-tag">Risk Assessment</span>
                 </div>
-            </div>
+            </div> -->
+			
 			<!--
             <div class="course">
                 <h3>Penetration Testing & Ethical Hacking</h3>
